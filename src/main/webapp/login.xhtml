@@ -17,5 +17,18 @@
     </b:navBar>
 </h:head>
 
-
+<h:body>
+    <h:form>
+        <h3>Login</h3>
+        <h:outputText value="Veuillez entrez votre nom d'utilisateur"/>
+        <br/>
+        <h:inputText id="username" value="#{User.username}"/>
+        <br/>
+        <h:outputText value="Veuillez entrez votre mot de passe"/>
+        <br/>
+        <h:inputText id="password" value="#{User.password}"/>
+        <br/>
+        <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg" action="#{user.login()}"/>
+    </h:form>
+</h:body>
 </html>
