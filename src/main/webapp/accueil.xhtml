@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <b:navBar brand="UnivBet" brandHref="#" fixed="top" inverse="true">
+        <b:navbarLinks>
+            <b:navLink value="Log In" href="login.xhtml"/>
+            <b:navLink value="Sign In" href="signin.xhtml"/>
+        </b:navbarLinks>
+    </b:navBar>
+</h:head>
+
+<h:body>
+    <h3>Match à venir</h3>
+    <h:dataTable value="#{match.getNewGames()}" var="match">
+        <h:column>
+            <f:facet name="header">Équipe A</f:facet>
+            #{match.equipeA}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Score</f:facet>
+            #{match.score}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Équipe B</f:facet>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Heure</f:facet>
+        </h:column>
+    </h:dataTable>
+    <br/>
+    <br/>
+    <br/>
+    <h:dataTable value="#{match.getOldGames()}" var="match">
+        <h:column>
+            <f:facet name="header">Équipe A</f:facet>
+            #{match.equipeA}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Score</f:facet>
+            #{match.score}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Équipe B</f:facet>
+        </h:column>
+    </h:dataTable>
+</h:body>
+
+</html>
