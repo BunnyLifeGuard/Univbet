@@ -18,44 +18,48 @@
 </h:head>
 
 <h:body>
+
+    <br/>
+    <br/>
+    <h3>Match terminé</h3>
+    <p:dataTable value="#{Match.getNewGames()}" var="match" style="border-spacing: 10px">
+        <p:column>
+            <f:facet name="header">Équipe A</f:facet>
+            #{match.equipeA}
+        </p:column>
+
+
+        <p:column>
+            <f:facet name="header">Équipe B</f:facet>
+            #{match.equipeB}
+        </p:column>
+
+
+        <p:column>
+            <f:facet name="header">Gagnant</f:facet>
+            #{match.resultat}
+        </p:column>
+    </p:dataTable>
+    <br/>
+    <br/>
+    <br/>
     <h3>Match à venir</h3>
-    <h:dataTable value="#{match.getNewGames()}" var="match">
-        <h:column>
+    <p:dataTable value="#{Match.getOldGames()}" var="match" style="border-spacing: 10px">
+        <p:column>
             <f:facet name="header">Équipe A</f:facet>
             #{match.equipeA}
-        </h:column>
+        </p:column>
 
-        <h:column>
-            <f:facet name="header">Score</f:facet>
-            #{match.score}
-        </h:column>
-
-        <h:column>
+        <p:column>
             <f:facet name="header">Équipe B</f:facet>
-        </h:column>
+            #{match.equipeB}
+        </p:column>
 
-        <h:column>
-            <f:facet name="header">Heure</f:facet>
-        </h:column>
-    </h:dataTable>
-    <br/>
-    <br/>
-    <br/>
-    <h:dataTable value="#{match.getOldGames()}" var="match">
-        <h:column>
-            <f:facet name="header">Équipe A</f:facet>
-            #{match.equipeA}
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Score</f:facet>
-            #{match.score}
-        </h:column>
-
-        <h:column>
-            <f:facet name="header">Équipe B</f:facet>
-        </h:column>
-    </h:dataTable>
+        <p:column>
+            <f:facet name="header">Résultat</f:facet>
+            #{match.resultat}
+        </p:column>
+    </p:dataTable>
 </h:body>
 
 </html>

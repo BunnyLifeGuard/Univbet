@@ -17,21 +17,33 @@
 </h:head>
 
 <h:body>
-    <h:form>
-        <br/>
-        <h:outputLabel value="#{Match.equipeA}"/>
-        <h:outputLabel value="         VS        "/>
-        <h:outputLabel value="#{Match.equipeB}"/>
-        <h:selectOneMenu id="resultat" value="#{Match.resultat}">
-            <f:selectItem value="#{Match.equipeA}"/>
-            <f:selectItem value="#{Match.equipeB}"/>
-        </h:selectOneMenu>
-        <h:selectOneMenu id="status" value="#{Match.status}">
-            <f:selectItems value="#{Match.getStatus()}"/>
-        </h:selectOneMenu>
-        <br/>
-        <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" action="#{Match.addResult(Match)}"/>
-    </h:form>
+   <br/>
+   <br/>
+   <br/>
+   <br/>
+   <h:dataTable value="#{Match.getMatches()}" var="match">
+        <h:column>
+            <f:facet name="header">Équipe </f:facet>
+            #{match.equipeA}
+        </h:column>
+       <h:column>
+           <f:facet name="header">Équipe </f:facet>
+           #{match.equipeB}
+       </h:column>
+       <h:column>
+           <f:facet name="header">Résultat</f:facet>
+           <h:selectOneMenu id="resultat" value="#{Match.resultat}" valueChangeListener="#{Match.updateResult}" >
+               <f:selectItem itemValue="#{match.equipeA}"/>
+               <f:selectItem itemValue="#{match.equipeB}"/>
+           </h:selectOneMenu>
+       </h:column>
+       <h:column>
+           <f:facet name="header">Status    </f:facet>
+           <h:selectOneMenu id="status" value="#{Match.status}" valueChangeListener="#{Match.updateStatus}" onchange="submit()">
+               <f:selectItems value="#{Match.getStatuts()}"/>
+           </h:selectOneMenu>
+       </h:column>
+   </h:dataTable>
 </h:body>
 
 </html>

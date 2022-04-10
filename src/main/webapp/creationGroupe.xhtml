@@ -11,27 +11,17 @@
 <h:head>
     <b:navBar brand="UnivBet" brandHref="#" fixed="top" inverse="true">
         <b:navbarLinks>
-            <b:navLink value="Modifier Résultat" href="accueilAdmin.jsf"/>
+            <b:navLink value="Creation Groupe" href="creationGroupe.jsf"/>
+            <b:navLink value="Pronostiquer" href="pronostiquer.jsf"/>
         </b:navbarLinks>
     </b:navBar>
 </h:head>
 
 <h:body>
-    <br/>
-    <br/>
-    <br/>
     <h:form>
-        <h:outputLabel value="Equipe Domicile"/>
-        <h:inputText id="TeamA" value="#{Match.equipeA}"/>
-        <br/>
-        <h:outputLabel value="Equipe Exterieure"/>
-        <h:inputText id="TeamB" value="#{Match.equipeB}"/>
-        <br/>
-        <h:selectOneMenu id="status" value="#{Match.status}">
-            <f:selectItems value="#{Match.getStatuts()}"/>
-        </h:selectOneMenu>
-        <br/>
-        <b:commandButton look="primary" value="Ajouter Match" icon="log-in" action="#{Match.addGame(Match)}"/>
+        <h:outputLabel value="Nom Ligue"/>
+        <h:inputText id="leagueName" value="#{League.name}"/>
+        <b:commandButton look="primary" value="Ajouter League" icon="log-in" action="#{League.addLeague(League)}"/>
     </h:form>
 </h:body>
 

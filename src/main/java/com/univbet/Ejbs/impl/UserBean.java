@@ -27,7 +27,7 @@ public class UserBean implements User {
                 FacesContext.getCurrentInstance().getExternalContext().dispatch("accueilAdmin.jsf");
             }
             else {
-                FacesContext.getCurrentInstance().getExternalContext().dispatch("accueilAdmin.jsf");
+                FacesContext.getCurrentInstance().getExternalContext().dispatch("accueilUser.jsf");
             }
         }
     }

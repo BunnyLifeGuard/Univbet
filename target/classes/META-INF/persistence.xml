@@ -6,6 +6,7 @@
     <persistence-unit name="default">
 
         <class>com.univbet.Entities.UserEntity</class>
+        <class>com.univbet.Entities.MatchEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.driver"
                       value="com.mysql.jdbc.Driver"/>

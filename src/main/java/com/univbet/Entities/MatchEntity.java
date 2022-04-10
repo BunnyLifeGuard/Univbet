@@ -1,13 +1,19 @@
 package com.univbet.Entities;
 
+import com.univbet.Enums.Status;
+
 import javax.inject.Named;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "findAllGames", query = "select m from MatchEntity m"),
+        @NamedQuery(name = "updateStatus", query = "update MatchEntity m SET m.status = :status where m.id = :id"),
+        @NamedQuery(name = "findThreeOldGames", query = "select m from MatchEntity m where m.status = 0"),
+        @NamedQuery(name = "findThreeNewGames", query = "select m from MatchEntity m where m.status = 1")
+})
 public class MatchEntity {
     @GeneratedValue
     @Id
@@ -16,10 +22,10 @@ public class MatchEntity {
     private String equipeA;
     @NotNull
     private String equipeB;
-    @Null
+    @Column(nullable = true)
     private String resultat;
     @NotNull
-    private String status;
+    private Status status;
 
     public Long getId() {
         return id;
@@ -53,11 +59,11 @@ public class MatchEntity {
         this.resultat = resultat;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }
