@@ -1,18 +1,34 @@
 package com.univbet.DTO;
 
+import com.univbet.Ejbs.User;
+import com.univbet.Entities.UserEntity;
+
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 
 @Named("User")
 @SessionScoped
-public class User implements Serializable {
+public class UserDto implements Serializable {
+
+    @EJB
+    private User UserBean;
+
     private String firstnameUser;
     private String username;
     private String password;
     private String role;
 
-    public User() {}
+    public UserDto() {}
+
+    public UserDto(UserEntity userEntity) {
+        this.firstnameUser = userEntity.getFirstname();
+        this.username = userEntity.getUsername();
+        this.role = userEntity.getRole().toString();
+        this.password = userEntity.getPassword();
+    }
 
     public String getFirstnameUser() {
         return firstnameUser;
@@ -46,7 +62,11 @@ public class User implements Serializable {
         this.role = role;
     }
 
-    private void login() {}
+    public void login(UserDto user) throws IOException {
+        this.UserBean.login(this);
+    }
 
-    private void signIn() {}
+    public void signIn(UserDto user) {
+        this.UserBean.signIn(this);
+    }
 }
