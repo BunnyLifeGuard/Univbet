@@ -14,9 +14,6 @@ public class UserEntity {
     private Long id;
 
     @NotNull
-    private String lastname;
-
-    @NotNull
     private String firstname;
 
     @NotNull
@@ -28,10 +25,6 @@ public class UserEntity {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getLastname() {
-        return lastname;
     }
 
     public String getFirstname() {

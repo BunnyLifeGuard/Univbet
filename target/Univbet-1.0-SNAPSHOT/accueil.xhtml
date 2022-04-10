@@ -11,10 +11,51 @@
 <h:head>
     <b:navBar brand="UnivBet" brandHref="#" fixed="top" inverse="true">
         <b:navbarLinks>
-            <b:navLink value="Log In" href="#"></b:navLink>
-            <b:navLink value="Sign In" href="#about"></b:navLink>
+            <b:navLink value="Log In" href="login.jsf"/>
+            <b:navLink value="Sign In" href="signin.jsf"/>
         </b:navbarLinks>
     </b:navBar>
 </h:head>
+
+<h:body>
+    <h3>Match à venir</h3>
+    <h:dataTable value="#{match.getNewGames()}" var="match">
+        <h:column>
+            <f:facet name="header">Équipe A</f:facet>
+            #{match.equipeA}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Score</f:facet>
+            #{match.score}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Équipe B</f:facet>
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Heure</f:facet>
+        </h:column>
+    </h:dataTable>
+    <br/>
+    <br/>
+    <br/>
+    <h:dataTable value="#{match.getOldGames()}" var="match">
+        <h:column>
+            <f:facet name="header">Équipe A</f:facet>
+            #{match.equipeA}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Score</f:facet>
+            #{match.score}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Équipe B</f:facet>
+        </h:column>
+    </h:dataTable>
+</h:body>
 
 </html>

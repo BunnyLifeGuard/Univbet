@@ -1,30 +1,21 @@
 package com.univbet.DTO;
 
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 
 @Named("User")
-public class User {
-    private String lastnameUser;
+@SessionScoped
+public class User implements Serializable {
     private String firstnameUser;
     private String username;
+    private String password;
     private String role;
 
     public User() {}
 
-    public String getLastnameUser() {
-        return lastnameUser;
-    }
-
-    public void setLastnameUser(String lastNameUser) {
-        this.lastnameUser = lastNameUser;
-    }
-
     public String getFirstnameUser() {
         return firstnameUser;
-    }
-
-    public void setFirstNameUser(String firstNameUser) {
-        this.firstnameUser = firstNameUser;
     }
 
     public String getUsername() {
@@ -33,6 +24,18 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setFirstnameUser(String firstnameUser) {
+        this.firstnameUser = firstnameUser;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getRole() {
@@ -45,4 +48,5 @@ public class User {
 
     private void login() {}
 
+    private void signIn() {}
 }
