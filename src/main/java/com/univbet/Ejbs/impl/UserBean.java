@@ -36,7 +36,8 @@ public class UserBean implements User {
     public void signIn(UserDto user) {
         UserEntity userEntity = new UserEntity();
         userEntity.setFirstname(user.getFirstnameUser());
-        userEntity.setPassword(userEntity.getPassword());
+        userEntity.setUsername(user.getUsername());
+        userEntity.setPassword(user.getPassword());
         userEntity.setRole(Role.NORMAL_USER);
 
         EntityManagerFactory emf = ApplicationListener.getEmf();

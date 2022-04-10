@@ -36,15 +36,13 @@
         <br/>
         <h:outputLabel value="Password"/>
         <br/>
-        <h:inputText id="password" value="#{User.username}">
+        <h:inputText id="password" value="#{User.password}">
             <f:validateRegex
                     pattern="^(?=.*[A-Z])(?=.*[!@#$_])(?=.*[0-9])(?=.*[a-z]).{8,3
 2}$" for="password" />
         </h:inputText>
         <br/>
-        <br/>
         <b:commandButton look="primary btn-block" value="Sign In" icon="log-in" action="#{User.signIn(User)}"/>
-
     </h:form>
 </h:body>
 </html>
